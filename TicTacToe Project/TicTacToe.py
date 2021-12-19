@@ -1,5 +1,4 @@
 import random
-
 board1 = ['_', '_', '_', '_']
 board2 = ['_', '_', '_', '_']
 board3 = ['_', '_', '_', '_']
@@ -7,10 +6,8 @@ board4 = ['_', '_', '_', '_']
 board = board1 + board2 + board3 + board4
 mark = ''
 player = ''
-
 choice = ""
 spot = ""
-
 
 def drawboard():
     print("|---|---|---|---|")
@@ -22,7 +19,6 @@ def drawboard():
     print('|___|___|___|___|')
     print(f'| {board[12]} | {board[13]} | {board[14]} | {board[15]} |')
     print('|___|___|___|___|')
-
 
 def checkifleading(board):
     # rows
@@ -74,44 +70,38 @@ def checkifwon(board):
     elif board[3] == mark and board[6] == mark and board[9] == mark and board[12] == mark:
         return True
 
-
 def draws():
-
     if board[1] != '_' and board[2] != '_' and board[3] != '_' and board[4] != '_' and board[5] != '_' and board[
         6] != '_' and board[7] != '_' and board[8] != '_' and board[9] != '_' and board[10] != '_' and board[
         11] != '_' and board[12] != '_' and board[13] != '_' and board[14] != '_' and board[15] != '_':
         return True
 
-
 def checkiffull(board):
     if board[spot] != '_':
         return True
-
 
 def checkiffullforai(board):
     if board[choice2] != '_':
         return
 
-
-pplayer = input("Player 1 ,Machine or a human player . 'h' for human ,'m' for bot  :").lower()
+pplayer = input("Player 1, Machine or a Human player . 'h' for Human ,'m' for Machine:").lower()
 while pplayer != 'h' and pplayer != 'm':
-    print('incorrect output')
-    pplayer = input("Player 1 ,Machine or a human player . 'h' for human ,'m' for bot  :").lower()
+    print('Incorrect output')
+    pplayer = input("Player 1, Machine or Human player . 'h' for Human ,'m' for Machine:").lower()
 
-pplayer2 = input("Player 2 ,Machine or a human player . 'h' for human ,'m' for bot  :").lower()
+pplayer2 = input("Player 2, Machine or Human player . 'h' for Human  ,'m' for Machine:").lower()
 while pplayer2 != 'h' and pplayer2 != 'm':
-    print('incorrect output')
-    pplayer2 = input(
-        "Player 2 ,Machine or a human player . 'h' for human ,'m' for bot  :").lower()
+    print('Incorrect output')
+    pplayer2 = input("Player 2, Machine or Human player . 'h' for Human  ,'m' for Machine:").lower()
 
 if pplayer == 'm' and pplayer2 == 'h':
     pplayer = 'h'
     pplayer2 = 'm'
 
 while player != 'X' and player != 'O':
-    player = input("Who do you want to be 'X' or 'O' :").upper()
+    player = input("Choose a player 'X' or 'O':").upper()
 print("Hey player", player)
-print('Welcome to a game of tic tac toe ')
+print('Welcome to a game of tic tac toe')
 player = mark
 while True:
     if pplayer == 'h':
@@ -120,16 +110,16 @@ while True:
         else:
             mark = 'X'
         drawboard()
-        choice = input('pick a row between 0-3 :')
-        spot = input('pick a spot in the row between 0-3:')
+        choice = input('Pick a row between 0-3 :')
+        spot = input('Pick a spot in the row between 0-3:')
         while True:
             if choice.isdigit() and spot.isdigit():
                 break
             else:
-                print('not a number')
-                print('try again')
-                choice = input('pick a row between 0-3 :')
-                spot = input('pick a spot in the row between 0-3:')
+                print('Not a number')
+                print('again')
+                choice = input('Pick a row between 0-3 :')
+                spot = input('Pick a spot in the row between 0-3:')
         choice = int(choice)
         spot = int(spot)
         if choice == 1:
@@ -141,15 +131,14 @@ while True:
         else:
             spot = spot
         if checkiffull(board):
-            print('The spot is occupied')
+            print('Occupied spot')
         board[spot] = mark
         if checkifleading(board):
-            print('you are close to victory ')
+            print('Victory is near ')
         if checkifwon(board):
-            print('you won player', mark)
+            print('You won player', mark)
             drawboard()
             break
-
         if draws():
             drawboard()
             print("it's a draw ")
@@ -160,16 +149,16 @@ while True:
             else:
                 mark = 'O'
             drawboard()
-            choice = input('pick a row between 0-3 :')
-            spot = input('pick a spot in the row between 0-3:')
+            choice = input('Pick a row between 0-3 :')
+            spot = input('Pick a spot in the row between 0-3:')
             while True:
                 if choice.isdigit() and spot.isdigit():
                     break
-                else:  # this code makes sure the players follow the rules
-                    print('not a number')
-                    print('try again')
-                    choice = input('pick a row between 0-3 :')
-                    spot = input('pick a spot in the row between 0-3:')
+                else:
+                    print('Not a number')
+                    print('Again')
+                    choice = input('Pick a row between 0-3 :')
+                    spot = input('Pick a spot in the row between 0-3:')
             choice = int(choice)
             spot = int(spot)
             if choice == 1:
@@ -181,17 +170,16 @@ while True:
             else:
                 spot = spot
             if checkiffull(board):
-                print('The spot is occupied')
+                print('Occupied spot')
             board[spot] = mark
             if checkifleading(board):
-                print('you are close to victory ')
+                print('Victory is near ')
             if checkifwon(board):
                 drawboard()
-                print('you won player', mark)
+                print('You won player', mark)
                 break
         if draws():
-            print("it's a draw ")
-
+            print("A draw ")
     if pplayer2 == 'm':
         if player == 'X':
             mark = 'X'
@@ -202,18 +190,17 @@ while True:
         drawboard()
         if checkiffullforai(board):
             drawboard()
-            print('The spot is occupied ')
+            print('Occupied spot ')
         board[choice2] = mark
         if checkifleading(board):
-            print('you are close to victory ')
-
+            print('Victory is near ')
         if checkifwon(board):
             drawboard()
-            print('you won player', mark)
+            print('You won player', mark)
             break
         if draws():
             drawboard()
-            print("it's a draw ")
+            print("A draw ")
             break
     if pplayer == 'm':
         if player == 'X':
@@ -225,22 +212,15 @@ while True:
         drawboard()
         if checkiffullforai(board):
             drawboard()
-            print('The spot is occupied ')
+            print('Occupied spot ')
         board[choice2] = mark
         if checkifleading(board):
-            print('you are close to victory ')
+            print('Victory is near ')
         if checkifwon(board):
             drawboard()
-            print('you won player', mark)
+            print('You won player', mark)
             break
         if draws():
             drawboard()
-            print("it's a draw ")
+            print("A draw ")
             break
-
-
-
-
-
-
-
