@@ -1,4 +1,4 @@
-## Answer1
+## Answer1-test again from pcharm
 # a. list and strings
 # b. you can export valu or valus  from a string depends the syntax
 # c.[::], [:] - depends what you want cam be positive and negative
