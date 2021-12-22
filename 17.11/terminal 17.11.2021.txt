@@ -1,0 +1,80 @@
+# read access to characters in string by index
+>>> 'sahlom'[2]
+'h'
+# we can view members in list by index 
+>>> nums=[3,5,8,12]
+>>> nums[1]
+5
+# we can change members in list
+>>> nums[1]=10
+>>> nums
+[3, 10, 8, 12]
+# but it is not possible to change string
+>>> 'sahlom'[2]='g'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'str' object does not support item assignment
+# a method to test a string (all chars are letters)
+>>> 'sahlom'.isalpha()
+True
+# type of test result is boolean
+>>> is_alpha='sahlom'.isalpha()
+>>> type(is_alpha)
+<class 'bool'>
+# a test of equality
+>>> nums[1]==5
+False
+# a test of inequality
+>>> 5>2
+True
+# are all chars are space?
+>>> '    '.isspace()
+True
+>>> len('masada')
+6
+# some methods with no requirement for arguments
+>>> print()
+
+# some methods require arguments
+>>> len()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: len() takes exactly one argument (0 given)
+# casting to boolean
+>>> bool('True')
+True
+>>> bool('False')
+True
+>>> bool(False)
+False
+# assigning a value to variable
+>>> d=5
+# boolean expression
+>>> d==4
+False
+# 'in' operator, checking membership
+>>> 'a' in 'car'
+True
+>>> 'b' in 'car'
+False
+>>> 5 in [4,7,2]
+False
+# creating a list object
+>>> a=['e','y','o']
+>>> b=a
+# two variables have same object
+>>> a is b
+True
+>>> b is a
+True
+# creating another list object with same values
+>>> c=['e','y','o']
+# it is a different object
+>>> a is c
+False
+# int is different, we shall talk about it
+>>> a=127
+>>> b=127
+>>> a is b
+True
+>>>
